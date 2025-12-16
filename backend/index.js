@@ -1,12 +1,12 @@
 const express = require('express')
 const path = require('path')
+const routes = require('./routes')
 const app = express()
 
 app.use(express.json())
 
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from Node backend!' })
-})
+// API routes (MVC)
+app.use('/api', routes)
 
 // Serve static frontend in production if present
 const frontendDist = path.join(__dirname, '..', 'frontend', 'dist')
