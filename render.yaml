@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: ma-nguon-mo-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm ci
+    startCommand: cd backend && npm run start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "4000"
