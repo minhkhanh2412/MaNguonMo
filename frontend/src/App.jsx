@@ -24,16 +24,32 @@ export default function App(){
   }
 
   return (
-    <div style={{fontFamily:'Arial, sans-serif', padding:20}}>
-      <h1>Danh sách cầu thủ</h1>
-      <form onSubmit={add} style={{marginBottom:16}}>
-        <input placeholder="Tên" value={name} onChange={e=>setName(e.target.value)} required />
-        <input placeholder="Vị trí" value={position} onChange={e=>setPosition(e.target.value)} style={{marginLeft:8}} />
-        <input placeholder="Số áo" value={number} onChange={e=>setNumber(e.target.value)} style={{marginLeft:8, width:80}} />
-        <button style={{marginLeft:8}}>Thêm</button>
+    <div className="app-container">
+      <header className="app-header">
+        <h1 className="title">Danh sách cầu thủ</h1>
+        <div className="student-card" aria-label="Thông tin sinh viên">
+          <div className="student-name">Lê Minh Khánh</div>
+          <div className="student-meta">
+            <span className="meta-item"><strong>MSSV:</strong> DH52200870</span>
+            <span className="meta-item"><strong>Lớp:</strong> D22_TH13</span>
+          </div>
+        </div>
+      </header>
+
+      <form onSubmit={add} className="player-form">
+        <input className="input" placeholder="Tên" value={name} onChange={e=>setName(e.target.value)} required />
+        <input className="input" placeholder="Vị trí" value={position} onChange={e=>setPosition(e.target.value)} />
+        <input className="input small" placeholder="Số áo" value={number} onChange={e=>setNumber(e.target.value)} />
+        <button className="btn">Thêm</button>
       </form>
-      <ul>
-        {players.map(p=> (<li key={p.id}>{p.name} — {p.position || '-'} — #{p.number || '-'}</li>))}
+
+      <ul className="player-list">
+        {players.map(p=> (
+          <li key={p.id} className="player-item">
+            <div className="player-name">{p.name}</div>
+            <div className="player-info">{p.position || '-'} • #{p.number || '-'}</div>
+          </li>
+        ))}
       </ul>
     </div>
   )
