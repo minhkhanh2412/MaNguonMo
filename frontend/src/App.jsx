@@ -40,7 +40,7 @@ export default function App(){
         <input className="input" placeholder="Tên" value={name} onChange={e=>setName(e.target.value)} required />
         <input className="input" placeholder="Vị trí" value={position} onChange={e=>setPosition(e.target.value)} />
         <input className="input small" placeholder="Số áo" value={number} onChange={e=>setNumber(e.target.value)} />
-        <button className="btn">Thêm</button>
+        <button className="btn">Thêm Cầu thủ</button>
       </form>
 
       <ul className="player-list">
